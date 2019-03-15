@@ -9,6 +9,20 @@ Oleh:
 * 05111640000125 Fadhlan Aulia
 * 05111740000019 Paramastri Ardiningrum
 
+## 1. Mengganti Nama .png menjadi _grey.png
+#### Penjelasan
+##### Soal:
+Elen mempunyai pekerjaan pada studio sebagai fotografer. Suatu hari ada seorang klien yang bernama Kusuma yang meminta untuk mengubah nama file yang memiliki ekstensi .png menjadi “[namafile]_grey.png”. Karena jumlah file yang diberikan Kusuma tidak manusiawi, maka Elen meminta bantuan kalian untuk membuat suatu program C yang dapat mengubah nama secara otomatis dan diletakkan pada direktori /home/[user]/modul2/gambar.
+
+##### Solusi:
+* soal ini diselesaikan dengan daemon, isi pada while(1) adalah berupa code yg mengubah format .png menjadi _grey.png.
+* pertama, membuat code yg dimana dia akan membaca isi folder tersebut menggunakan library dirent yg lebih tepatnya menggunakan 
+opendir() dan readdir().
+* setelah dibaca semua kemudian mencari file yg berformat .png menggunakan strchr untuk mencari .png dan membandingkannya menggunakan strcmp yang apabila mereka sama dengan .png mereka akan bernilai 0.
+* untuk mengubah .png menjadi _grey.png dilakukan sebuah "trade", dari membuat oldfile yg dimana dia adalah gabungan dari direktori letak direktori dan nama filenya menggunakan strcat, menjadi newfile yang dimana dia didapatkan filename sudah ditukar dan mendapatkan nama_grey.png.
+* untuk mengubahnya nama file menggunakan library c yaitu rename(newfile,oldfile).
+
+
 ## 2. Menghapus elen.ku
 #### Penjelasan
 ##### Soal: 
