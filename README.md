@@ -45,3 +45,24 @@ Jika file itu pernah dibuka, program Anda akan membuat 1 file makan_sehat#.txt d
 * Untuk menghitung rentang waktu, digunakan difftime yang dapat mengurangi waktu satu dan waktu yang lain. Disini yang dicari selisihnya adalah waktu program diakses dikurangi dengan waktu terakhir file makan_enak.txt diakses. Nah, apabila didapat selisihnya kurang dari atau sama dengan 30 yang dimana itu berarti file makan_enak.txt tekah dibuka setidaknya 30 detik yang lalu. 
 Apabila memenuhi kondisi rentang 30 detik, dibuatlah file makan_sehat#.txt dengan # adalah bilangan berurutan dimulai dari 1. Dibuat file dipointerkan pada variabel buka, yang nantinya digunakan untuk membuka file baru (makan_sehat#.txt). Setelah itu dibuat array tipe data char filenya_baru[100] yang nantinya disalinkan dengan file /home/paramastri/Documents/makanan/makan_sehat. 
 * Untuk melengkapi ketentuan nama file yang harus disertai dengan urutan angka yang urut dengan ekstensi .txt, maka digunakan strcat untuk menambahkannya. Setelah itu buka file dan write, lalu tutup kembali. Tidak lupa untuk meng-increment variabel urutan supaya integer yang telah di-strcat-kan bertambah dengan perulangan.
+
+## 5. Log
+#### Penjelasan
+##### Soal: 
+Kerjakan poin a dan b di bawah:
+Buatlah program c untuk mencatat log setiap menit dari file log pada syslog ke /home/[user]/log/[dd:MM:yyyy-hh:mm]/log#.log
+Ket:
+Per 30 menit membuat folder /[dd:MM:yyyy-hh:mm]
+Per menit memasukkan log#.log ke dalam folder tersebut
+‘#’: increment per menit. Mulai dari 1
+Buatlah program c untuk menghentikan program di atas.
+NB: Dilarang menggunakan crontab dan tidak memakai argumen ketika menjalankan program.
+##### Solusi: 
+* Solusi dari soal ini adalah diselesaikan dengan menggunakan daemon. Kita dapatkan dulu waktu sekarang (current time) dengan mendeklarasikan variabel bertipe data time_t, misal waktu_log dan dimasukkan ke dalam fungsi time(). 
+* Buat struct tm yang dipointerkan ke variabel waktu. Dimana struct ini akan mengonversi waktu yang raw menjadi terpisah-pisah hari, jam, bulan, tahun, dan lain-lain. Lalu deklarasi variabel waktu adalah mengambil waktu sekarang menggunakan variabel waktu_log yang dimasukkan ke dalam fungsi localtime().
+* Langkah selanjutnya adalah deklarasi variabel array char guna mencetak waktu yang sudah terpisah-pisah formatnya. Kemudian cetak dengan sprintf format waktu tadi ke dalam path yang diinginkan untuk membentuk foldernya. Gunakan fungsi mkdir().
+* Kemudian gunakan perulangan untuk menamai file log yang akan terbuat dalam folder dengan format jam tadi. Buat deklarasi file yang menunjuk pointer ke 2 file yaitu file syslog dan file baru .log yang akan dibuat. Variabel file_sys akan membaca file syslog. Buat variabel char array untuk memberi nama file .log nantinya. Kemudian sprintf variabel nama_file tadi diikuti dengan parameter path yang diinginkan.
+* Lalu variabel file_baru yang tadi telah dideklarasi akan menulis nama file yang telah di sprintf tadi. Untuk memindah seluruh isi file ke log#.log digunakan perulangan fscanf variabel file_sys dan fprintf variabel file_baru. Jangan lupa tutup file yang telah dibuka.
+* Sleep(60) digunakan supaya per menit memasukkan log#.log ke dalam folder format waktu.
+* Untuk program yang menghentikan jalannya daemon ini, digunakan char array yang menyimpan variabel sebagai tempat mendapatkan proses id dari program soal5.c, dapatkan pidnya kemudian gunakan fungsi kill() untuk melakukan kill sebagai usaha menghentikan program.
+
