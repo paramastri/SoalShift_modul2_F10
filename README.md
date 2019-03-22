@@ -34,6 +34,8 @@ Catatan: Tidak boleh menggunakan crontab
 * Lalu bandingkan owner dan group dari file elen.ku apakah “www-data” atau bukan. Membandingkannya dengan perintah strcmp. Apabila hasil dari strcmp itu 0 (yang menandakan owner dan group file tersebut adalah www-data), maka char path yang menyimpan file elen.ku tadi dihapus. 
 * Beri perintah sleep(3) untuk menghapus file “elen.ku” setiap 3 detik.
 
+![alt text](https://github.com/paramastri/SoalShift_modul2_F10/blob/master/2.PNG)
+
 ## 4. Makan Sehat
 #### Penjelasan
 ##### Soal: 
@@ -45,6 +47,8 @@ Jika file itu pernah dibuka, program Anda akan membuat 1 file makan_sehat#.txt d
 * Untuk menghitung rentang waktu, digunakan difftime yang dapat mengurangi waktu satu dan waktu yang lain. Disini yang dicari selisihnya adalah waktu program diakses dikurangi dengan waktu terakhir file makan_enak.txt diakses. Nah, apabila didapat selisihnya kurang dari atau sama dengan 30 yang dimana itu berarti file makan_enak.txt tekah dibuka setidaknya 30 detik yang lalu. 
 Apabila memenuhi kondisi rentang 30 detik, dibuatlah file makan_sehat#.txt dengan # adalah bilangan berurutan dimulai dari 1. Dibuat file dipointerkan pada variabel buka, yang nantinya digunakan untuk membuka file baru (makan_sehat#.txt). Setelah itu dibuat array tipe data char filenya_baru[100] yang nantinya disalinkan dengan file /home/paramastri/Documents/makanan/makan_sehat. 
 * Untuk melengkapi ketentuan nama file yang harus disertai dengan urutan angka yang urut dengan ekstensi .txt, maka digunakan strcat untuk menambahkannya. Setelah itu buka file dan write, lalu tutup kembali. Tidak lupa untuk meng-increment variabel urutan supaya integer yang telah di-strcat-kan bertambah dengan perulangan.
+
+![alt text](https://github.com/paramastri/SoalShift_modul2_F10/blob/master/4.PNG)
 
 ## 5. Log
 #### Penjelasan
@@ -66,3 +70,4 @@ NB: Dilarang menggunakan crontab dan tidak memakai argumen ketika menjalankan pr
 * Sleep(60) digunakan supaya per menit memasukkan log#.log ke dalam folder format waktu.
 * Untuk program yang menghentikan jalannya daemon ini, digunakan char array yang menyimpan variabel sebagai tempat mendapatkan proses id dari program soal5.c, dapatkan pidnya kemudian gunakan fungsi kill() untuk melakukan kill sebagai usaha menghentikan program.
 
+![alt text](https://github.com/paramastri/SoalShift_modul2_F10/blob/master/5.PNG)
