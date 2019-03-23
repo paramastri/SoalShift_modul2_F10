@@ -43,12 +43,12 @@ Catatan: Tidak boleh menggunakan crontab
 ##### Soal:
 Diberikan file campur2.zip. Di dalam file tersebut terdapat folder “campur2”. Buatlah program C yang dapat : i) mengekstrak file zip tersebut. ii) menyimpan daftar file dari folder “campur2” yang memiliki ekstensi .txt ke dalam file daftar.txt.
 ##### Solusi :
-Soal ini diselesaikan dengan Fork dan exec. yang dimana anaknya ini di fork juga sehingga menghasilkan 4 proses.
-Pada parent proses dilakukan Fork, yaitu pada anak menghasilkan proses untuk meng-ekstrak file campur2.zip, dan pada Parent menghasilkan suatu hasil pengambilan list nama file berformat .txt pada isi campur2.zip yang dimasukkan kedalam file daftar.txt.
+* Soal ini diselesaikan dengan Fork dan exec. yang dimana anaknya ini di fork juga sehingga menghasilkan 4 proses.
+* Pada parent proses dilakukan Fork, yaitu pada anak menghasilkan proses untuk meng-ekstrak file campur2.zip, dan pada Parent menghasilkan suatu hasil pengambilan list nama file berformat .txt pada isi campur2.zip yang dimasukkan kedalam file daftar.txt.
 untuk mendapatkan hasil parent tersebut kita perlu melakukan fork lagi pada parent dan memberikan sebuah pipe agar output dari tiap anak yg didalam parent dapat di sequential-kan.
-pada proses fork parent melakukan sebuah pengambilan list dari file campur2.zip yang sudah di ekstrak kemudian output tersebut menjadi input pada anak lainnya yg berada dalam parent proses
-proses berikutnya melakukan sebuah filter pada sebuah list yg sebelumnya menjadi output, kini menjadi input pada proses ini. untuk menfilternya dilakukan dengan perintah grep dan yang kemudian menghasilkan sebuah list yang terfilter menjadi list berisikan format .txt dan output ini akan menjadi input di proses berikutnya
-setelah mendapatkan list, list tadi dimasukkan kedalam file bernama daftar.txt dengan menggunakan perintah read.
+* Pada proses fork parent melakukan sebuah pengambilan list dari file campur2.zip yang sudah di ekstrak kemudian output tersebut menjadi input pada anak lainnya yg berada dalam parent proses
+* Proses berikutnya melakukan sebuah filter pada sebuah list yg sebelumnya menjadi output, kini menjadi input pada proses ini. untuk menfilternya dilakukan dengan perintah grep dan yang kemudian menghasilkan sebuah list yang terfilter menjadi list berisikan format .txt dan output ini akan menjadi input di proses berikutnya
+* Setelah mendapatkan list, list tadi dimasukkan kedalam file bernama daftar.txt dengan menggunakan perintah read.
 
 ![alt text](https://github.com/paramastri/SoalShift_modul2_F10/blob/master/3_1.PNG)
 ![alt text](https://github.com/paramastri/SoalShift_modul2_F10/blob/master/3_2.PNG)
