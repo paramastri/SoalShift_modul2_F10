@@ -22,6 +22,7 @@ opendir() dan readdir().
 * untuk mengubah .png menjadi _grey.png dilakukan sebuah "trade", dari membuat oldfile yg dimana dia adalah gabungan dari direktori letak direktori dan nama filenya menggunakan strcat, menjadi newfile yang dimana dia didapatkan filename sudah ditukar dan mendapatkan nama_grey.png.
 * untuk mengubahnya nama file menggunakan library c yaitu rename(newfile,oldfile).
 
+![alt text](https://github.com/paramastri/SoalShift_modul2_F10/blob/master/1.PNG)
 
 ## 2. Menghapus elen.ku
 #### Penjelasan
